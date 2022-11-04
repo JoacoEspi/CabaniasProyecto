@@ -2,7 +2,7 @@
 
 
 <h1> Cliente Index </h1>
-
+<a asp-action="Create">Agregar Cliente</a>
 <table class="table">
     <thead>
          <tr>
@@ -26,6 +26,9 @@
             </th>
             <th>
                 <label>Email</label>
+            </th>
+            <th>
+
             </th>
         </tr>
     </thead>
@@ -51,6 +54,14 @@
             </td>
             <td>
                 <label>@cliente.Email</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a asp-action="Edit" asp-route-id="@cliente.Id">Editar</a>
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@cliente.Id">Eliminar</a>
             </td>
         </tr>
     }

@@ -8,7 +8,18 @@ namespace CabañasProyecto.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            List<Reserva> reservas = new();
+            using (CabaniasContext c = new())
+            {
+                reservas = c.Reservas.ToList();
+            }
+            return View(reservas);
+        }
+        [HttpGet]
+        public IActionResult Create()
+        {
             return View();
         }
+        
     }
 }

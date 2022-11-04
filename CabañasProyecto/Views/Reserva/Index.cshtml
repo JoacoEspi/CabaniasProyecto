@@ -1,1 +1,44 @@
-﻿<h1> Reserva Index </h1>
+﻿@model IEnumerable<Reserva>
+
+<h1>Reservas</h1>
+<a asp-action="Create">Crear nueva reserva</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>Id</label>
+            </th>
+            <th>
+                <label>Fecha de Inicio</label>
+            </th>
+            <th>
+                <label>Fecha de fin</label>
+            </th>
+            <th>
+                <label>Cabaña</label>
+            </th>
+            <th>
+                <label>Cliente</label>
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    @foreach (var reserva in Model)
+    {
+        <tr>
+            <td>
+                <label>@reserva.Id</label>
+            </td>
+            <td>
+                <label>@reserva.FechaInicio</label>
+            </td>
+            <td>
+                <label>@reserva.FechaFin</label>
+            </td>
+        </tr>
+    }
+
+</table>
