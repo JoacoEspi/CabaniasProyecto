@@ -1,1 +1,45 @@
-﻿<h1>Cabañas Index</h1>
+﻿@model IEnumerable<Cabania>
+<h1> Cabania Index </h1>
+<a asp-action="Create">Crear Cabania</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>ID</label>
+            </th>
+            <th>
+                <label>PRECIO</label>
+            </th>
+            <th>
+                <label>CAPACIDAD</label>
+            </th>
+            <th>
+                <label>ESTADO</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <label>@item.Id</label>
+            </td>
+            <td>
+                <label>@item.Precio</label>
+            </td>
+            <td>
+                <label>@item.Capacidad</label>
+            </td>
+            <td>
+                <label>@item.Estado</label>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-outline-primary">EDITAR</a>
+                <a asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-outline-primary">ELIMINAR</a>
+            </td>
+        </tr>
+    }
+</table>
