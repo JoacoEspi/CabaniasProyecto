@@ -2,15 +2,52 @@
 
 <h1>Agregar Reserva</h1>
 <form asp-action="Create">
-    <div>
-        <label>FechaInicio</label>
-        <input asp-for="FechaFin"/>
-    </div>
-    <div>
-        <label>FechaFin</label>
-        <input asp-for="FechaFin" />
-    </div>
-    <div>
-        <label></label>
-    </div>
+    <table class="table">
+        <div>
+            <label>FechaInicio</label>
+            <input asp-for="FechaInicio"/>
+        </div>
+        <div>
+            <label>FechaFin</label>
+            <input asp-for="FechaFin" />
+        </div>
+        <div>
+            <label>IdCliente</label>
+            <input asp-for="IdCliente" />
+        </div>
+        <thead>
+            <tr>
+                <th>
+                    <label>Id</label>
+                </th>
+                <th>
+                    <label>Capacidad</label>
+                </th>
+                <th>
+                    <label>Precio</label>
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <label>Cabañas</label>
+          @foreach (var c in ViewBag.Cabanias) 
+          {
+             <tr>
+                <td>
+                  <label>@c.Id</label>
+                </td>
+                <td>
+                  <label>@c.Capacidad</label>
+                </td>
+                <td>
+                  <label>@c.Precio</label>
+                </td>
+                <td class ="form-group" style="margin-top:10px;">
+                  <input asp-route-id="@c.Id" type="submit" value="Reservar" class="btn btn-outline-dark"/>
+                </td>
+                </tr>
+          }
+    </table>
 </form>

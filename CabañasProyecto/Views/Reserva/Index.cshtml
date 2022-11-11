@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Reserva>
+﻿@model IEnumerable<Cabania>
+
+@*Listar las Cabañas con el estado Reservado=True*@
 
 <h1>Reservas</h1>
 <a asp-action="Create">Crear nueva reserva</a>
@@ -10,16 +12,10 @@
                 <label>Id</label>
             </th>
             <th>
-                <label>Fecha de Inicio</label>
+                <label>Capacidad</label>
             </th>
             <th>
-                <label>Fecha de fin</label>
-            </th>
-            <th>
-                <label>Cabaña</label>
-            </th>
-            <th>
-                <label>Cliente</label>
+                <label>Precio</label>
             </th>
             <th>
 
@@ -33,10 +29,10 @@
                 <label>@reserva.Id</label>
             </td>
             <td>
-                <label>@reserva.FechaInicio</label>
+                <label>@reserva.Capacidad</label>
             </td>
             <td>
-                <label>@reserva.FechaFin</label>
+                <label>@reserva.Precio</label>
             </td>
         </tr>
     }
