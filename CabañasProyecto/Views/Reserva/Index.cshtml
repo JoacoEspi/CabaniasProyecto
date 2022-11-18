@@ -1,6 +1,8 @@
-﻿@model IEnumerable<Cabania>
+﻿@model IEnumerable<Reserva>
 
-@*Listar las Cabañas con el estado Reservado=True*@
+@*Listar las Cabañas con el estado Reservado=True- Faltaría editar la info de las reservas. Estamos listando
+    datos de las cabañas reservadas, pero no los datos de la reserva: id, fecha de inicio y fin.
+*@
 
 <h1>Reservas</h1>
 <a asp-action="Create">Crear nueva reserva</a>
@@ -9,30 +11,46 @@
     <thead>
         <tr>
             <th>
-                <label>Id</label>
+                <label>Id Reserva</label>
             </th>
             <th>
-                <label>Capacidad</label>
+                <label>Fecha Inicio</label>
             </th>
             <th>
-                <label>Precio</label>
+                <label>Fecha Fin</label>
+            </th>
+            <th>
+                <label>Id Cliente</label>
+            </th>
+            <th>
+                <label>Id Cabaña</label>
             </th>
             <th>
 
             </th>
         </tr>
     </thead>
-    @foreach (var reserva in Model)
+    @foreach (var r in Model)
     {
         <tr>
             <td>
-                <label>@reserva.Id</label>
+                <label>@r.Id</label>
             </td>
             <td>
-                <label>@reserva.Capacidad</label>
+                <label>@r.FechaInicio</label>
             </td>
             <td>
-                <label>@reserva.Precio</label>
+                <label>@r.FechaFin</label>
+            </td>
+            <td>
+                <label>@r.IdCliente</label>
+            </td>
+            <td>
+                <label>@r.IdCabania</label>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-Id="@r.Id" class="btn btn-outline-primary">EDITAR</a>
+                <a asp-action="Delete" asp-route-Id="@r.Id" class="btn btn-outline-primary">ELIMINAR</a>
             </td>
         </tr>
     }

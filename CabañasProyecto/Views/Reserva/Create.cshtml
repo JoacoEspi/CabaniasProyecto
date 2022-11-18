@@ -5,7 +5,7 @@
     <table class="table">
         <div>
             <label>FechaInicio</label>
-            <input asp-for="FechaInicio"/>
+            <input asp-for="FechaInicio" />
         </div>
         <div>
             <label>FechaFin</label>
@@ -13,41 +13,24 @@
         </div>
         <div>
             <label>IdCliente</label>
-            <input asp-for="IdCliente" />
+            <select asp-for="IdCliente">
+                @foreach (var c in ViewBag.Clientes)
+                {
+                    <option>@c.Id</option>
+                }
+            </select>
         </div>
-        <thead>
-            <tr>
-                <th>
-                    <label>Id</label>
-                </th>
-                <th>
-                    <label>Capacidad</label>
-                </th>
-                <th>
-                    <label>Precio</label>
-                </th>
-                <th>
-
-                </th>
-            </tr>
-        </thead>
-        <label>Cabañas</label>
-          @foreach (var c in ViewBag.Cabanias) 
-          {
-             <tr>
-                <td>
-                  <label>@c.Id</label>
-                </td>
-                <td>
-                  <label>@c.Capacidad</label>
-                </td>
-                <td>
-                  <label>@c.Precio</label>
-                </td>
-                <td class ="form-group" style="margin-top:10px;">
-                  <input asp-route-id="@c.Id" type="submit" value="Reservar" class="btn btn-outline-dark"/>
-                </td>
-                </tr>
-          }
+        <div>
+            <label>Cabañas</label>
+            <select asp-for="IdCabania">
+                @foreach (var c in ViewBag.Cabanias)
+                {
+                 <option>@c.Id</option>   
+                }
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Crear Reserva" />
+        </div>
     </table>
 </form>
